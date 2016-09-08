@@ -1,7 +1,7 @@
-# Workflows Course
+# Project Seed
 
-This project is an example of workflow management.
+This project is a seed created by Xavi Majoral
 
 ## Technologies
 
-**It uses:** Git, Github, Gulp (watch, concatenate, ), Browserify, Sass, Compass,...
+Gulp (watch, concatenate, Browserify, sass, autoprefixer, uglify ), Flexbox,...
