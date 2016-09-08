@@ -342,15 +342,12 @@ html {
   box-sizing: inherit; }
 
 body {
-  background-color: #3A3248;
+  background-color: olive;
   font-family: Helvetica, Arial, sans-serif; }
   body h1 {
     background-color: yellow; }
 
 .container {
-  width: 30rem;
-  max-width: 50em;
-  margin: 0 auto;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
