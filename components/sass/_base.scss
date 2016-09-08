@@ -1,55 +1,92 @@
-// _base.scss
-// ==============
+// Universal Box Sizing with Inheritance
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Main Styles
 body {
-  background: lighten($beige, 10%);
-  font-family: $bodyFont;
-  font-size: 1.1em;
+    background-color: $darkPurple;
+    font-family: $bodyFont;
+
+    h1 {
+        background-color: yellow;
+    }
 }
- 
-#content {
-  color: $pink;
-  font-size: 2em;
-}
- 
+
 .container {
-  width: 90%;
-  max-width: 1000px;
+  width: 30rem;
+  max-width: 50em;
   margin: 0 auto;
-  position: relative;
-}
- 
-#{headings()} {
-  font-family: $headFont;
-  font-size: 3em;
-}
- 
-h1 {
-  font-size: 3.5em;
-  margin-bottom: 10px;
-  color: $green;
- 
-  @media (max-width: 700px) {
-    font-size: 2.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
- 
-h2 {
-  font-size: 1.5em;
-  color: $purple;
-}
- 
-p {
-  font-size: 1.3em;
-  line-height: 1.5em;
-    color: $purple;
-  margin-bottom: 20px;
-    margin-top: 15px;
-}
- 
-section {
-  padding: 20px 0;
-}
- 
-.artgroup {
-    @include clearfix;
-} //artgroup
+
+.flex-outer {
+  list-style-type: none;
+  padding: 0;
+  width: 20rem;
+  max-width: 30rem;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &:last-child {
+      align-items: center;
+    }
+
+    label {
+      padding: 0.5rem;
+      max-width: 13.75rem;
+    }
+
+    input {
+
+      &:not([type='checkbox']) {
+        padding: 1rem;
+        border: none;
+        width: 100%;
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #14467C;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      border-radius: 2px;
+    }
+
+    &.checkElem {
+      display: block;
+    }
+
+    a {
+      &:link, &:visited, &:hover, &:active {
+        color: $lightBlue;
+      }
+    }
+  } // end li
+} // end flex-outer
