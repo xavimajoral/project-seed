@@ -342,10 +342,10 @@ html {
   box-sizing: inherit; }
 
 body {
-  background-color: olive;
+  background-color: #FFF;
   font-family: Helvetica, Arial, sans-serif; }
   body h1 {
-    background-color: yellow; }
+    background-color: #F78E22; }
 
 .container {
   display: -ms-flexbox;
@@ -392,18 +392,18 @@ body {
       max-width: 13.75rem; }
     .flex-outer li input:not([type='checkbox']) {
       padding: 1rem;
-      border: none;
+      border-radius: 5px;
       width: 100%; }
     .flex-outer li button {
       width: 100%;
       padding: 0.5rem 1rem;
       border: none;
       background: #14467C;
-      color: #fff;
+      color: #FFF;
       text-transform: uppercase;
       letter-spacing: .09em;
       border-radius: 2px; }
     .flex-outer li.checkElem {
       display: block; }
     .flex-outer li a:link, .flex-outer li a:visited, .flex-outer li a:hover, .flex-outer li a:active {
-      color: #97D5D9; }
+      color: #5B5B5B; }

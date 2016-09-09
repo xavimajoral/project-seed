@@ -6,13 +6,13 @@ html {
   box-sizing: inherit;
 }
 
-// Main Styles
+// Main Styles for Service Cube Admin Page
 body {
-    background-color: olive;
+    background-color: $white;
     font-family: $bodyFont;
 
     h1 {
-        background-color: yellow;
+        background-color: $orange;
     }
 }
 
@@ -60,7 +60,7 @@ body {
 
       &:not([type='checkbox']) {
         padding: 1rem;
-        border: none;
+        border-radius: 5px;
         width: 100%;
       }
     }
@@ -69,8 +69,8 @@ body {
       width: 100%;
       padding: 0.5rem 1rem;
       border: none;
-      background: #14467C;
-      color: #fff;
+      background: $blue;
+      color: $white;
       text-transform: uppercase;
       letter-spacing: .09em;
       border-radius: 2px;
@@ -82,7 +82,7 @@ body {
 
     a {
       &:link, &:visited, &:hover, &:active {
-        color: $lightBlue;
+        color: $grey;
       }
     }
   } // end li

@@ -14,29 +14,29 @@
 <body>
 <!-- Page Contents -->
   <div class="container">
-      <h1> Vitil Solutions </h1>
-      <h2> Admin Console</h2>
+      <h1> {{ company }} </h1>
+      <h2> {{ title }}</h2>
 
       <form class="" action="" method="post">
-        <p> Sign in to your account</p>
+        <p> {{ signAccount }}</p>
         <ul class="flex-outer">
           <li>
-            <label for="email"> Email address </label>
+            <label for="email"> {{ email }} </label>
             <input type="email" id="email">
           </li>
           <li>
-            <label for="password"> Password</label>
+            <label for="password"> {{ password }}</label>
             <input type="password" id="password">
           </li>
           <li class="checkElem">
             <input type="checkbox" id="keepSession">
-            <label for="keepSession"> Stay signed in </label>
+            <label for="keepSession"> {{ staySign }} </label>
           </li>
           <li>
-            <button type="submit"> Sign in </button>
+            <button type="submit"> {{ signIn }} </button>
           </li>
           <li>
-            <a href="#"> Forgot password? </a>
+            <a href="#"> {{ forgotPass }} </a>
           </li>
         </ul>
       </form>

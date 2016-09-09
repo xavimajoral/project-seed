@@ -4,18 +4,21 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	connect = require('gulp-connect'),
 	gulpif = require('gulp-if'),
+	gulpif = require('gulp-if'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	postcss = require('gulp-postcss'),
 	autoprefixer = require('autoprefixer'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	mustache = require("gulp-mustache");
 
 var env,
 	jsSources,
 	sassSources,
 	htmlSources,
 	sassStyle,
-	outputDir;
+	outputDir,
+	templatesSources;
 
 env = process.env.NODE_ENV || 'development';
 
@@ -36,7 +39,27 @@ sassSources = [
 	'components/sass/_base.scss',
 	'components/sass/_variables.scss'
 ];
-htmlSources = [outputDir + '/*.html'];
+
+templatesSources = [
+	'components/templates/*.html'
+];
+
+gulp.task('html', function() {
+	gulp.src(templatesSources)
+	.pipe(mustache({
+		company: "Vitil Solutions",
+		title: "Admin Console",
+		signAccount: "Sign in to your account",
+		email: "Email address",
+		password: "Password",
+		staySign: "Stay signed in",
+		signIn: "Sign in",
+		forgotPass: "Forgot password?"
+
+	}))
+	.pipe(gulp.dest(outputDir))
+	.pipe(connect.reload());
+});
 
 gulp.task('js', function() {
 	gulp.src(jsSources)
@@ -51,18 +74,18 @@ gulp.task('sass', function () {
 	var processors = [
 		autoprefixer({browsers: ['last 2 version']})
 	];
-  return gulp.src(sassSources)
-    .pipe(sass().on('error', sass.logError))
+	return gulp.src(sassSources)
+	.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(processors))
 		.pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(outputDir + '/css'))
+	.pipe(gulp.dest(outputDir + '/css'))
 		.pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
 	gulp.watch(jsSources, ['js']);
 	gulp.watch(sassSources, ['sass']);
-	gulp.watch(htmlSources, ['html']);
+	gulp.watch(templatesSources, ['html']);
 });
 
 gulp.task('connect', function() {
@@ -70,11 +93,6 @@ gulp.task('connect', function() {
 		root: outputDir,
 		livereload: true
 	});
-});
-
-gulp.task('html', function() {
-	gulp.src(htmlSources)
-		.pipe(connect.reload())
 });
 
 gulp.task('default', ['html', 'js', 'sass', 'connect', 'watch']);
